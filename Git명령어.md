@@ -17,6 +17,13 @@
 | git status | 현재 깃의 상태 확인 |
 | git commit | stage area에 있는 파일을 커밋 |
 | git commit -m "커밋메세지" | 커밋 메세지와 동시에 커밋하기 |
+| git push origin master | origin master브랜치에 푸쉬 |
+#### 발생 에러 : error: failed to push some refs to  
+- 원격 저장소와 로컬 저장소의 상태가 달라서 나는 에러  
+시도 1 - 검색하다 ```git push -f origin```명령어를 발견하고 시도해봄  
+-> 기존에 올려놨던 파일이 전부 날라감...  
+시도 2 - ```git pull origin main --allow-unrelated-histories```명령어 사용  
+        서로 관련없는 두 프로젝트를 병합할 때 예외를 주는 방법으로 해결  
 
 
 
