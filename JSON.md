@@ -68,3 +68,6 @@ console.log(typeof json5, json5); // 심볼과 함수는 변환되지 않는다.
 const parsed = JSON.parse(json5); // json으로 변환된 문자열을 다시 객체로 변환했기 때문에 여전히 함수는 포함되지 않고 출력된다.
 console.log(typeof parsed, parsed); // object {name: 'lee', age: 20}
 ```  
+#### 직렬화, 역직렬화 과정이 왜 필요한가?
+- 자바스크립트 실행 환경에서만 인식되는 객체를 어느 환경에서든 해석될 수 있는 포맷으로 변환하기 위해 직렬화과정을 거친다.  
+- 문자열 타입을 객체로 변환해줘야 코드에서 자유롭게 사용할 수 있다.  
