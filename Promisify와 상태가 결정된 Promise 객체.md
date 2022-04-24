@@ -1,4 +1,4 @@
-# Promisify와 여러 promsie 객체 다루기
+# Promisify와 상태가 결정된 Promise 객체
 
 ## Promisify
 
