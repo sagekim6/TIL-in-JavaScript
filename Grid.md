@@ -200,7 +200,7 @@ header ul li {
   padding: 15px;
 }
 
-main{
+main {
   background-color: tomato;
 }
 
@@ -213,7 +213,8 @@ footer {
   /* column-line을 1부터 3까지 전부 차지하게 footer영역 지정 */
   grid-column: 1/3;
 }
-```  
+```
+
 <img width="960" alt="gride-line-layout" src="https://user-images.githubusercontent.com/94341508/158753185-2d7d48a6-0b19-48cd-bb4b-62eca52af15d.PNG">  
   
 ## grid-template-area
@@ -304,6 +305,6 @@ footer {
   background-color: rebeccapurple;
   grid-area: b;
 }
-```  
+```
 
 <img width="960" alt="grid-template-area" src="https://user-images.githubusercontent.com/94341508/158782372-c773f3c2-9a8a-4134-ac0f-37675807d06a.PNG">

@@ -80,5 +80,6 @@ float 요소 다음에 오는 요소가 자리를 못잡고 헤매게되는 경�
 .clear {
   clear: both;
 }
-```  
+```
+
 <img width="335" alt="float" src="https://user-images.githubusercontent.com/94341508/158305996-a7c98e27-e5e6-4f60-a96a-79e7ea8f9ec0.PNG">

@@ -39,7 +39,7 @@ element {
 일반적인 문서 흐름에서 제거하고, 스크롤(scroll) 되는 가장 가까운 상위 요소에 대해 오프셋을 적용한다.  
 스크롤 이동으로 요소가 움직여도 sticky 요소는고정된 상태를 유지한다.
 
-#### 연습) 이미지 2개를 position 속성을 이용해 겹쳐서 놓기  
+#### 연습) 이미지 2개를 position 속성을 이용해 겹쳐서 놓기
 
 ```html
 <body>
@@ -134,5 +134,6 @@ header ul li {
   font-size: 30px;
   margin: 10px;
 }
-```  
+```
+
 <img width="960" alt="position" src="https://user-images.githubusercontent.com/94341508/158516383-ecd8171f-fc1f-450e-9548-e88e0e634785.PNG">

@@ -83,5 +83,6 @@ CSS 가상 클래스를 사용해 요소의 스타일을 지정해 시각적으�
     </fieldset>
   </form>
 </body>
-```  
+```
+
 <img width="662" alt="로그인폼" src="https://user-images.githubusercontent.com/94341508/158065677-e06e95a5-e14d-414c-9f1c-e1b885c3d1e3.PNG">
