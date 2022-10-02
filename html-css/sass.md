@@ -39,7 +39,10 @@ sass에는 데이터 타입이 존재한다.
 
 ### 3. 변수 선언
 
-달러기호(`$`)를 이용해 변수를 선언한다.
+- 달러기호(`$`)를 이용해 변수를 선언한다.
+- `{}` 중괄호 안에서만 유효하며 재할당이 가능하다.
+- `!global` 플래그를 사용하면 변수의 유효범위를 전역(Global)로 설정할 수 있다.
+- `#{}` 문자 보간을 이용해 코드 중간에 변수를 넣을 수 있다.
 
 ```css
 $변수명: 값;
@@ -56,6 +59,8 @@ $red: red;
 
 ### 4. 중첩(Nesting)
 
+상위 선택자의 중복을 피하면서 선택자를 선택할 수 있다.
+
 ```css
 $red: red;
 $green: green;
@@ -65,5 +70,101 @@ $green: green;
   .Sass {
     $red: red;
   }
+}
+```
+
+#### `@at-root` 중첩 벗어나기
+
+중첩에서 벗어나고 싶을 때 `@at-root` 키워드를 사용한다. 중첩 안에서 생성하되 중첩 밖에서 사용해야 경우에 유용합니다.
+
+```css
+.list {
+  $w: 100px;
+  $h: 50px;
+  li {
+    width: $w;
+    height: $h;
+  }
+  @at-root .box {
+    // 중첩문 안에 선언한 변수를 사용할 때
+    width: $w;
+    height: $h;
+  }
+}
+```
+
+해당 scss문은 아래 css로 컴파일된다.
+
+```css
+.list li {
+  width: 100px;
+  height: 50px;
+}
+.box {
+  width: 100px;
+  height: 50px;
+}
+```
+
+### 5. `@mixin` 재활용
+
+재사용 할 css 선언 그룹을 지정해 사용할 수 있다.  
+`@mixin` 키워드로 선언한뒤 `@include` 키워드로 사용합니다.
+
+```css
+// 믹스인 선언
+@mixin 믹스인이름 {
+  스타일;
+}
+
+// 믹스인 사용
+@include 믹스인이름;
+```
+
+```css
+@mixin pink-border {
+  border: 1px solid pink;
+  padding: 1rem;
+}
+
+p {
+  @include pink-border();
+}
+```
+
+#### 인수(Arguments) 받기
+
+믹스인은 함수처럼 인수를 받아서 사용할 수 있다.
+
+```css
+@mixin border($color) {
+  border: 1px solid $color;
+  padding: 1rem;
+}
+
+p {
+  @include border(green);
+}
+```
+
+#### 인수의 기본값 설정
+
+인수가 전달되지 않았을 때 기본값으로 적용된다.
+
+```css
+@mixin 믹스인이름($매개변수: 기본값) {
+  스타일;
+}
+```
+
+```css
+// black으로 적용된다
+@mixin border($color: black) {
+  border: 1px solid $color;
+  padding: 1rem;
+}
+
+p {
+  @include border(); // 인수가 전달되지 않음
 }
 ```
