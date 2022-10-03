@@ -168,3 +168,71 @@ p {
   @include border(); // 인수가 전달되지 않음
 }
 ```
+
+#### 가변 인수(Variable Arguments)
+
+인수의 개수가 불확실할 때 `...`을 붙여 사용합니다.
+
+```css
+@mixin 믹스인이름($매개변수...) {
+  스타일;
+}
+
+@include 믹스인이름(인수A, 인수B, 인수C);
+```
+
+```css
+// 인수를 순서대로 하나씩 전달 받다가, 3번째 매개변수($bg-values)는 인수의 개수에 상관없이 받음
+@mixin bg($width, $height, $bg-values...) {
+  width: $width;
+  height: $height;
+  background: $bg-values;
+}
+
+div {
+  // 위의 Mixin(bg) 설정에 맞게 인수를 순서대로 전달하다가 3번째 이후부터는 개수에 상관없이 전달
+  @include bg(
+    100px,
+    200px,
+    url("/images/a.png") no-repeat 10px 20px,
+    url("/images/b.png") no-repeat,
+    url("/images/c.png")
+  );
+}
+```
+
+#### `@content`
+
+선언된 Mixin에 @content이 포함되어 있다면 해당 부분에 원하는 스타일 블록 을 전달할 수 있습니다.
+이 방식을 사용하여 기존 Mixin이 가지고 있는 기능에 선택자나 속성 등을 추가할 수 있습니다.
+
+```css
+@mixin 믹스인이름() {
+  스타일;
+  @content;
+}
+
+@include 믹스인이름() {
+  // 스타일 블록
+  스타일;
+}
+```
+
+```css
+@mixin icon($url) {
+  &::after {
+    content: $url;
+    @content;
+  }
+}
+.icon1 {
+  // icon Mixin의 기존 기능만 사용
+  @include icon("/images/icon.png");
+}
+.icon2 {
+  // icon Mixin에 스타일 블록을 추가하여 사용
+  @include icon("/images/icon.png") {
+    position: absolute;
+  }
+}
+```
